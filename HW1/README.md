@@ -1,9 +1,7 @@
 
 HW1
 ===
-[TOC]
 
----
 # 1. 	Raw檔I/O
 ## 1.1.	Raw檔處理
 ---
@@ -40,11 +38,13 @@ HW1
 :::
 
 ### c.	顯示原圖
- ![](https://i.imgur.com/j3M3Dch.png)
+
+![](https://i.imgur.com/j3M3Dch.png)
 
 ### d.	翻轉lena256
 翻轉就是將每個像素點的行與列相互調換。
- ![](https://i.imgur.com/xuMVcfC.png)
+
+![](https://i.imgur.com/xuMVcfC.png)
 
 ### e.	將lena256分為16等分，並隨機擺放。需顯示兩種不同的隨機狀況，並說明演算法。
  
@@ -75,7 +75,7 @@ random_final[image_count-1].at<uchar>(i+(k/4*r16,j+(k%4)*c16)=lena_random[poke[k
 #### (1)	如何得出合成圖的大小
 四張原圖大小都為256x256，而合成的大圖，長與寬是相等的，由此可知，大圖最後的大小為512x512
 
- ![](https://i.imgur.com/YKU8mvD.png)
+![](https://i.imgur.com/YKU8mvD.png)
 
 #### (2)	將四張小圖合為一張大圖
 四張256x256小圖將合成一張512x512大圖，方程式為：
@@ -85,6 +85,7 @@ Mat_mix.at<uchar>(i+(k/2)*height,j+(k%2)*width)=PMat[k].at<uchar(i,j)
 其中Mat_mix是合成後的大圖，PMat[k]是第k塊小圖。可以發現其實這就是1.2-e中的還原方程式。
 
 #### (3)	儲存為raw檔，並在Xnview中顯示結果。
+
 ![](https://i.imgur.com/m5tzLJK.png)
 
 
@@ -92,18 +93,21 @@ Mat_mix.at<uchar>(i+(k/2)*height,j+(k%2)*width)=PMat[k].at<uchar(i,j)
 ## 1.3.	亮度
 ### a.	將lena256的每個像素強度值加上50
 當像素強度值大於(255-50)的將其都設定為205，最後在將圖上像素值都加上50，這樣就不會發生像素值超過255的狀況。
+
 ![](https://i.imgur.com/nZww3AK.png)
 
  
 ### b.	將lena256的每個像素值隨機加上-50~50
 以時間作為隨機種子，取得-50~50間的隨機數，接著將原圖加上其值。
 需要注意的是除了上限，也有可能突破下限，因此多設置了，若隨機值為負數，且像素強度值小於(0+負數隨機值)，則設定值為負數隨機值取絕對值。
+
  ![](https://i.imgur.com/f25Y831.png)
 
 ### c.	a與b小題需要注意甚麼
 亮度值的範圍為0~255，因此在增加或減少時，都要注意會不會超過這個範圍，在程式中，我以條件式限制，將所有會超過255的強度值固定在255，會低於0的強度值固定在0。
 # 2. 	將haha.raw這張圖左上角寫上自己的學號，並在右下角寫上任何想說的話。
 使用opencv中的函式putText就能夠很輕易的寫上資訊，需注意的是圖檔大小為512x512，讀錯大小的話，熊貓會只剩下兩隻耳朵。
+
 ![](https://i.imgur.com/1c7e9pj.png)
 
 
