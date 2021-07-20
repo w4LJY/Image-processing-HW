@@ -544,14 +544,17 @@ if (way[i][0] * way[i][1] != 0) { //斜走
 ## (3).	灰階{80,160,255}
 * D4：最短路徑66
 
+    ![](https://i.imgur.com/gBDJkMP.png)
 
 
 * D8：最短路徑25
     
-    
+    ![](https://i.imgur.com/qz3nmxF.png)
+ 
 
 * Dm：最短路徑30
  
+    ![](https://i.imgur.com/gkaagNp.png)
 
 
 ###### tags: `github` `ImaageProcessing`
