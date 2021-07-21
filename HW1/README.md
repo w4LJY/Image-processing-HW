@@ -50,7 +50,7 @@ HW1
  
 #### (1)	切割
 將原來256x256的大圖切割為16張64x64的小圖，方程式為：
-```c=
+```c
 lena_random[k].at<uchar>(i,j)=lena.at<uchar>(i+(k/4)*r16,j+(k%4)*c16);
 ``` 
 其中i,j是任意點的行與列，k是小圖的編號(0~15)共16個 ，r16與c16為小圖的長與寬(也就是64)，lena是大圖，lena_random[k]是切割過後的第k張小圖。 
@@ -61,7 +61,7 @@ lena_random[k].at<uchar>(i,j)=lena.at<uchar>(i+(k/4)*r16,j+(k%4)*c16);
 
 #### (3)	還原
 將16張64x64的小圖，依據隨機出來的排列順序來還原成256x256的大圖，方程式為：
-```c=
+```c
 random_final[image_count-1].at<uchar>(i+(k/4*r16,j+(k%4)*c16)=lena_random[poke[k]-1].at<uchar>(i,j);
 ```
 
@@ -79,7 +79,7 @@ random_final[image_count-1].at<uchar>(i+(k/4*r16,j+(k%4)*c16)=lena_random[poke[k
 
 #### (2)	將四張小圖合為一張大圖
 四張256x256小圖將合成一張512x512大圖，方程式為：
-```c=
+```c
 Mat_mix.at<uchar>(i+(k/2)*height,j+(k%2)*width)=PMat[k].at<uchar(i,j)
 ```
 其中Mat_mix是合成後的大圖，PMat[k]是第k塊小圖。可以發現其實這就是1.2-e中的還原方程式。
